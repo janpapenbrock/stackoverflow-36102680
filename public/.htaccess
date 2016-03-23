@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# strSearch=REMS+POWER+PRESS+E+ATTREZZATURE&strSearchType=OR&strSearchMin=0&strSearchMax=0&strSearchCat=0&curPage=86&sortField=sku
+RewriteCond %{QUERY_STRING} ^(strSearch=REMS+POWER+PRESS+E+ATTREZZATURE&strSearchType=OR&strSearchMin=0&strSearchMax=0&strSearchCat=0&curPage=86&sortField=sku)$
+RewriteRule ^Scripts/prodlist\.asp$ localhost [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^strSearch=(.+)&strSearchType=(.+)&strSearchMin=(.+)&strSearchMax=(.+)&strSearchCat=(.+)&curPage=(.+)&sortField=(.+)$
+RewriteRule ^Scripts/prodlist\.asp$ redirect.php [L]
+
+RewriteCond %{QUERY_STRING} ^strSearch=REMS+POWER+PRESS+E+ATTREZZATURE&strSearchType=OR&strSearchMin=0&strSearchMax=0&strSearchCat=0&curPage=86&sortField=sku$
+RewriteRule ^Scripts/prodlist\.asp$ redirect.php [L]
